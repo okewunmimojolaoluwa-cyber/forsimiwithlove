@@ -68,7 +68,7 @@ export default function Countdown() {
               transition={{ delay: index * 0.1 }}
             >
               <motion.div
-                className="text-5xl md:text-7xl font-bold glow-text mb-4"
+                className="text-4xl sm:text-5xl md:text-7xl font-bold glow-text mb-4"
                 key={item.value}
                 initial={{ scale: 1.2, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}

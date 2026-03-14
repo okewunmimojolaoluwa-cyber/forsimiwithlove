@@ -46,7 +46,7 @@ export default function HeroSection() {
       <div className="text-center z-10 max-w-5xl mx-auto">
         {/* First name with elegant script */}
         <motion.h1
-          className="text-7xl md:text-8xl lg:text-9xl font-script mb-4 leading-tight"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-script mb-4 leading-tight"
           style={{
             background: 'linear-gradient(135deg, #e0aaff 0%, #c77dff 50%, #9d4edd 100%)',
             WebkitBackgroundClip: 'text',
@@ -101,7 +101,7 @@ export default function HeroSection() {
         
         {/* Second name with elegant script */}
         <motion.h1
-          className="text-7xl md:text-8xl lg:text-9xl font-script mb-12 leading-tight"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-script mb-12 leading-tight"
           style={{
             background: 'linear-gradient(135deg, #ff006e 0%, #f72585 50%, #ff006e 100%)',
             WebkitBackgroundClip: 'text',
@@ -163,7 +163,7 @@ export default function HeroSection() {
         
         {/* Subtitle with elegant font */}
         <motion.p
-          className="text-2xl md:text-3xl lg:text-4xl font-elegant font-light italic max-w-3xl mx-auto leading-relaxed"
+          className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-elegant font-light italic max-w-3xl mx-auto leading-relaxed px-4"
           style={{
             color: '#e0e0e0',
             textShadow: '0 2px 20px rgba(157, 78, 221, 0.3)',

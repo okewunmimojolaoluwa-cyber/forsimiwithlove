@@ -55,7 +55,7 @@ export default function StoryTimeline() {
           return (
             <motion.div
               key={index}
-              className="glass rounded-3xl p-8 md:p-12 relative"
+              className="glass rounded-3xl p-6 md:p-12 relative"
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-100px' }}
@@ -65,7 +65,7 @@ export default function StoryTimeline() {
               }}
             >
               <div className="text-6xl mb-6">{step.emoji}</div>
-              <h3 className="text-3xl md:text-4xl font-serif mb-4" style={{ color: step.color }}>
+              <h3 className="text-2xl md:text-4xl font-serif mb-4" style={{ color: step.color }}>
                 {step.title}
               </h3>
               <p className="text-lg md:text-xl text-gray-300 font-serif italic">
