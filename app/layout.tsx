@@ -1,19 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display, Great_Vibes, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
-const greatVibes = Great_Vibes({ 
-  weight: '400',
-  subsets: ['latin'], 
-  variable: '--font-great-vibes' 
-})
-const cormorant = Cormorant_Garamond({ 
-  weight: ['300', '400', '600'],
-  subsets: ['latin'], 
-  variable: '--font-cormorant' 
-})
 
 export const metadata: Metadata = {
   title: 'Mojolaoluwa ❤️ Similoluwa',
@@ -27,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} ${cormorant.variable} font-sans`}>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+      </head>
+      <body>{children}</body>
     </html>
   )
 }

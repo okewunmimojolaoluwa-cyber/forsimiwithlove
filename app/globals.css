@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-great-vibes: 'Great Vibes', cursive;
+  --font-cormorant: 'Cormorant Garamond', serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +19,7 @@ body {
   background: #0a0a0f;
   color: white;
   overflow-x: hidden;
+  font-family: var(--font-inter);
 }
 
 ::-webkit-scrollbar {
