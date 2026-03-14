@@ -208,7 +208,6 @@ export default function HeroSection() {
         transition={{ repeat: Infinity, duration: 2 }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ delay: 2 }}
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-sm text-gray-400 font-elegant">Scroll to explore our story</span>
