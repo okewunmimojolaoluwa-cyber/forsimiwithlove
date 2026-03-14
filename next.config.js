@@ -3,18 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
   },
-  // Fallback to Babel if SWC fails
   swcMinify: false,
   compiler: {
-    removeConsole: false,
+    removeConsole: true, // Remove console.logs in production for speed
   },
+  // Compress responses
+  compress: true,
+  // Faster page loads
+  poweredByHeader: false,
 }
 
 module.exports = nextConfig

@@ -1,15 +1,13 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { motion } from 'framer-motion'
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [musicFile, setMusicFile] = useState('/music/love-song.mp3')
   const audioRef = useRef<HTMLAudioElement>(null)
-  
+
   useEffect(() => {
-    // Check for current music file
     fetch('/api/admin/music')
       .then(res => res.json())
       .then(data => {
@@ -17,43 +15,40 @@ export default function MusicPlayer() {
           setMusicFile(`/music/${data.currentMusic}?t=${Date.now()}`)
         }
       })
-      .catch(err => console.error('Error loading music:', err))
+      .catch(() => {})
   }, [])
-  
+
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
+    if (!audioRef.current) return
+    if (isPlaying) {
+      audioRef.current.pause()
+    } else {
+      audioRef.current.play()
     }
+    setIsPlaying(!isPlaying)
   }
-  
+
   return (
     <>
       <audio ref={audioRef} loop key={musicFile}>
         <source src={musicFile} type="audio/mpeg" />
       </audio>
-      
-      <motion.button
-        className="fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full glass glow-box flex items-center justify-center text-3xl"
+
+      <button
         onClick={togglePlay}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        animate={{
-          boxShadow: isPlaying 
-            ? ['0 0 20px #9d4edd', '0 0 40px #9d4edd', '0 0 20px #9d4edd']
-            : '0 0 20px #9d4edd'
-        }}
-        transition={{
-          duration: 2,
-          repeat: isPlaying ? Infinity : 0
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full flex items-center justify-center text-2xl select-none touch-manipulation"
+        style={{
+          background: 'rgba(255,255,255,0.1)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(157,78,221,0.5)',
+          boxShadow: isPlaying
+            ? '0 0 25px rgba(157,78,221,0.8)'
+            : '0 0 15px rgba(157,78,221,0.4)',
+          WebkitTapHighlightColor: 'transparent',
         }}
       >
         {isPlaying ? '🔊' : '🎵'}
-      </motion.button>
+      </button>
     </>
   )
 }
